@@ -6,9 +6,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
       body: ListView(
         children: [
-          Container(),
+          Container(
+            height: 20,
+            width: 10,
+            color: Colors.red,
+          ),
         ],
       ),
     );
