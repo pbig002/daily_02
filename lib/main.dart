@@ -1,3 +1,4 @@
+import 'package:daily_app03/pages/add_note.dart';
 import 'package:daily_app03/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: AddNote(),
     );
   }
 }

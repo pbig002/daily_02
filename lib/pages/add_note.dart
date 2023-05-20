@@ -15,7 +15,7 @@ class _AddNoteState extends State<AddNote> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_typing_uninitialized_variables
-    var products;
+    var products=[];
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
