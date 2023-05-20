@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import 'package:daily_app03/models/note.dart';
+=======
+>>>>>>> b14fff8921b195ed1bbc4945f98f7e0fe908c177
 import 'package:daily_app03/pages/add_note.dart';
 import 'package:daily_app03/pages/home.dart';
 import 'package:daily_app03/services/local_database_server.dart';
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: AddNote(),
     );
   }
 }
