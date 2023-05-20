@@ -1,5 +1,9 @@
+import 'package:daily_app03/constants/hive-box.dart';
+import 'package:daily_app03/models/note.dart';
+import 'package:daily_app03/pages/home.dart';
 import 'package:flutter/material.dart';
 
+import '../services/local_database_server.dart';
 
 class AddNote extends StatefulWidget {
   const AddNote({Key? key}) : super(key: key);
@@ -10,12 +14,18 @@ class AddNote extends StatefulWidget {
 }
 
 class _AddNoteState extends State<AddNote> {
+  TextEditingController title = TextEditingController();
+  TextEditingController des = TextEditingController();
   get products => null;
 
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_typing_uninitialized_variables
+<<<<<<< Updated upstream
     var products=[];
+=======
+    var products = [];
+>>>>>>> Stashed changes
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -37,7 +47,12 @@ class _AddNoteState extends State<AddNote> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            },
             icon: const Icon(
               Icons.dashboard_outlined,
             ),
@@ -60,7 +75,13 @@ class _AddNoteState extends State<AddNote> {
               children: [
                 Spacer(),
                 InkWell(
-                  onTap: () {},
+                  onTap: () async {
+                    print("34567");
+                    Note note = Note(title.text, des.text);
+                    await LocalDatabaseService.instance.add(HiveBox.note, note);
+                    title.clear();
+                    des.clear();
+                  },
                   child: Container(
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -94,6 +115,7 @@ class _AddNoteState extends State<AddNote> {
           children: [
             //title
             TextFormField(
+              controller: title,
               style: const TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 20,
@@ -110,6 +132,7 @@ class _AddNoteState extends State<AddNote> {
             ),
 
             TextFormField(
+              controller: des,
               style: const TextStyle(fontSize: 16, color: Colors.black),
               decoration: const InputDecoration(
                 hintText: "Enter description",
@@ -131,7 +154,11 @@ class _AddNoteState extends State<AddNote> {
     return Padding(
       padding: const EdgeInsets.only(left: 10.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () async {
+          print("34567");
+          Note note = Note(title.text, des.text);
+          await LocalDatabaseService.instance.add(HiveBox.note, note);
+        },
         child: Container(
           height: 30,
           width: 30,
@@ -143,4 +170,3 @@ class _AddNoteState extends State<AddNote> {
     );
   }
 }
-
