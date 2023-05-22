@@ -21,13 +21,9 @@ class _AddNoteState extends State<AddNote> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_typing_uninitialized_variables
-<<<<<<< HEAD
 
     var products = [];
 
-=======
-    var products=[];
->>>>>>> b14fff8921b195ed1bbc4945f98f7e0fe908c177
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -101,12 +97,14 @@ class _AddNoteState extends State<AddNote> {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Row(
                   children: List.generate(
-                      products.length, (index) => colorSelection(index)),
+                    products.length,
+                    (index) => colorSelection(index),
+                  ),
                 ),
-                Spacer(),
+                const Spacer(),
               ],
             ),
           ],
@@ -156,11 +154,7 @@ class _AddNoteState extends State<AddNote> {
     return Padding(
       padding: const EdgeInsets.only(left: 10.0),
       child: InkWell(
-        onTap: () async {
-          print("34567");
-          Note note = Note(title.text, des.text);
-          await LocalDatabaseService.instance.add(HiveBox.note, note);
-        },
+        onTap: () {},
         child: Container(
           height: 30,
           width: 30,

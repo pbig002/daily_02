@@ -11,19 +11,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 173, 239, 248),
+        backgroundColor: const Color.fromARGB(255, 173, 239, 248),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => AddNote()),
+                MaterialPageRoute(builder: (context) => const AddNote()),
               );
             },
-            icon: Icon(Icons.add_alarm_sharp),
+            icon: const Icon(Icons.add_box_outlined, size: 40,),
           ),
         ],
-        title: Center(
+        title: const Center(
           child: Text(
             "Dialy",
             style: TextStyle(
@@ -33,35 +33,34 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(30),
-        child: Container(
+        padding: const EdgeInsets.all(30),
+      
           child: DisplayBoxWidget<Note>(
             hiveBox: HiveBox.note,
             child: (context, index, data) {
-              // return ListView(
-              //   padding: const EdgeInsets.all(10),
-              //   children: [
-              //     Container(
-              //       decoration: BoxDecoration(
-              //         color: Color.fromARGB(255, 137, 235, 230),
-              //         borderRadius: BorderRadius.circular(10),
-              //       ),
-              //       height: 50,
-              //       width: 40,
-              //       child: Text(""),
-              //     ),
-              //   ],
-              // );
               return Container(
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 176, 198, 233)),
-                padding: EdgeInsets.all(20),
-                child: Text(data.description),
+                decoration: const BoxDecoration(
+                 
+                    color: Color.fromARGB(255, 176, 198, 233),
+                    ),
+              
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(data.topic, style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                    
+                    Text(data.description, style: TextStyle(fontSize: 20),),
+                  
+                  ],
+                ),
+                
               );
             },
           ),
         ),
-      ),
-    );
+        
+      );
+      
+   
   }
 }

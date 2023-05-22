@@ -18,13 +18,16 @@ class DisplayBoxWidget<T> extends StatelessWidget {
     return ValueListenableBuilder<Box<T>>(
       valueListenable: Hive.box<T>(hiveBox.name).listenable(),
       builder: (context, box, widget) {
-        return Center(
-          child: ListView.builder(
-            itemCount: box.values.length,
-            itemBuilder: (context, index) {
-              T data = box.values.toList()[index];
-              return child(context, index, data);
-            },
+        return Container(
+          color: Colors.amberAccent,
+          child: Center(
+            child: ListView.builder(
+              itemCount: box.values.length,
+              itemBuilder: (context, index) {
+                T data = box.values.toList()[index];
+                return child(context, index, data);
+              },
+            ),
           ),
         );
       },
